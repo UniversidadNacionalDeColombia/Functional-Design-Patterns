@@ -36,6 +36,8 @@ let hollywoodPrinciple() =
     printfn "Ingrese su peso corporal"
     let weight = float(Console.ReadLine())
 
+    //Funcion que calcula el imc y dependiendo de las diferentes opciones que recibe
+    //ejecuta alguna de las funciones correspondientes que recibe como paremetros
     let imc ifSuccess ifHeightZero ifweightZero ifHeightTooBig ifweightTooBig heigth weight  = 
         if heigth <= 0.0
         then ifHeightZero()
@@ -53,8 +55,11 @@ let hollywoodPrinciple() =
     let ifSuccess x = printfn "%.3f kg/m^2"x
     let heightTooBig () = printfn "La altura no puede ser tan grande"
     let weightTooBig () = printfn "El peso es demasiado grande"
+    //Funcion que usa 3 de los parametros que recibe la funcion imc
     let imc1 = imc ifSuccess ifZero ifZero 
+    //Funcion que utiliza los 2 ultimos parametros que le faltaba por recibir a la funcion original imc
     let imcSimple = imc1 ifTooBig ifTooBig
+    //Funcion que utiliza los 2 ultimos parametros que le faltaba por recibir a la funcion original imc
     let imcEspecific = imc1 heightTooBig weightTooBig
 
     //No se especifica por que es el error, por decir si la altura se muestra dato incorrecto
@@ -72,6 +77,8 @@ let hollywoodPrinciple() =
 
     //Si el imc < 18.5 se muestra un mensaje, imc > 25 otro mensaje y imc >= 18.5 y imc <= 25 otro mensaje
     printfn "Resultado con mensaje de alerta dependiendo del imc"
+    //Funcion que es ejecutada en caso de exito y se encarga de trabajar el valor recibido
+    //e imprimir un mensaje correspondiente al valor que se ha recibido
     let ifSuccess2 x = 
         if x<18.5 
         then printfn "Peso bajo: %.3f kg/m^2 " x 
@@ -88,6 +95,7 @@ let main argv =
     let prnt = printfn "%s"
     let mutable input = ""
     printfn "Ingrese la opcion que desea realizar:"
+
     options
     |> List.iter prnt
 
