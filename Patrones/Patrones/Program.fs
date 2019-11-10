@@ -80,6 +80,7 @@ let hollywoodPrinciple() =
         else printfn "Peso adecuado: %.3f kg/m^2" x
     let imcSpecialized = imc ifSuccess2 ifZero ifZero ifZero ifZero
     imcSpecialized height weight
+    
 
 [<EntryPoint>]
 let main argv =

@@ -1,13 +1,11 @@
 # PATTERNS
 
-## Introduction
-
-> An introduction or lead on what problem you're solving. Answer the question, "Why does someone need this?"
-
-## Code Samples
-
-> You've gotten their attention in the introduction, now show a few code examples. So they get a visualization and as a bonus, make them copy/paste friendly.
+## Integrantes:
+> Jaime Estupiñan
+> Juan Betancourt
+> Tom Perez
 
 ## Installation
 
-> The installation instructions are low priority in the readme and should come at the bottom. The first part answers all their objections and now that they want to use it, show them how.
+> La carpeta patrones es una console aplication de f# de visual studio 2019
+> Por lo tanto para abrirla se debe usar visual studio 2019 y posteriormente abrirla como Project/Solution
