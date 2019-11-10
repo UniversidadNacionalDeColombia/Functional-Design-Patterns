@@ -51,15 +51,35 @@ let hollywoodPrinciple() =
     let ifTooBig () = printfn "¿Estas seguro de tener un dato correcto?"
     let ifZero () = printfn "Dato incorrecto :("
     let ifSuccess x = printfn "%.3f kg/m^2"x
-    let imc1 = imc ifSuccess ifZero ifZero 
-    let imcSimple = imc1 ifTooBig ifTooBig
     let heightTooBig () = printfn "La altura no puede ser tan grande"
     let weightTooBig () = printfn "El peso es demasiado grande"
+    let imc1 = imc ifSuccess ifZero ifZero 
+    let imcSimple = imc1 ifTooBig ifTooBig
     let imcEspecific = imc1 heightTooBig weightTooBig
+
+    //No se especifica por que es el error, por decir si la altura se muestra dato incorrecto
+    printfn "Resultado con funcion ''simple'' "
     imcSimple height weight
+    //Se especifica que tipo de problema hay, por ejemplo si la altura es demasiado grande
+    printfn "Resultado con funcion ''Especifica'' "
     imcEspecific height weight
 
+    let errors () = failwith "Dato incorrecto"
+    let imcErrors = imc ifSuccess errors errors errors errors
+    //Los errores generan una alerta
+    printfn "Resultado que genera Throws con datos incorrectos"
+    imcErrors height weight
 
+    //Si el imc < 18.5 se muestra un mensaje, imc > 25 otro mensaje y imc >= 18.5 y imc <= 25 otro mensaje
+    printfn "Resultado con mensaje de alerta dependiendo del imc"
+    let ifSuccess2 x = 
+        if x<18.5 
+        then printfn "Peso bajo: %.3f kg/m^2 " x 
+        else if x>25.0 
+        then printfn "Peso alto: %.3f kg/m^2" x 
+        else printfn "Peso adecuado: %.3f kg/m^2" x
+    let imcSpecialized = imc ifSuccess2 ifZero ifZero ifZero ifZero
+    imcSpecialized height weight
 
 [<EntryPoint>]
 let main argv =
