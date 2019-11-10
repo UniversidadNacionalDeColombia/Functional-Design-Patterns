@@ -2,8 +2,8 @@
 
 ## Integrantes:
 >* Jaime Estupiñan
-* Juan Betancourt
-* Tom Perez
+>* Juan Betancourt
+>* Tom Perez
 
 ## Installation
 
