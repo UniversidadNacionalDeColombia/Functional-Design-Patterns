@@ -31,8 +31,34 @@ let partialAplication() =
     inPoundsUnits (pounds kilograms)
     
 let hollywoodPrinciple() =
-    let pounds x = x*2.205
-    printfn "asdasd"
+    printfn "Ingrese su estatura"
+    let height = float(Console.ReadLine())
+    printfn "Ingrese su peso corporal"
+    let weight = float(Console.ReadLine())
+
+    let imc ifSuccess ifHeightZero ifweightZero ifHeightTooBig ifweightTooBig heigth weight  = 
+        if heigth <= 0.0
+        then ifHeightZero()
+        else if height > 3.0
+        then ifHeightTooBig()
+        else if weight <= 0.0
+        then ifweightZero()
+        else if weight >= 700.0
+        then ifweightTooBig()
+        else ifSuccess(weight/(height*height))
+
+    printfn "Su indice de masa corporal es de:"
+    let ifTooBig () = printfn "¿Estas seguro de tener un dato correcto?"
+    let ifZero () = printfn "Dato incorrecto :("
+    let ifSuccess x = printfn "%.3f kg/m^2"x
+    let imc1 = imc ifSuccess ifZero ifZero 
+    let imcSimple = imc1 ifTooBig ifTooBig
+    let heightTooBig () = printfn "La altura no puede ser tan grande"
+    let weightTooBig () = printfn "El peso es demasiado grande"
+    let imcEspecific = imc1 heightTooBig weightTooBig
+    imcSimple height weight
+    imcEspecific height weight
+
 
 
 [<EntryPoint>]
