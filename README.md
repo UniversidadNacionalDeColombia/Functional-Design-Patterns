@@ -1,7 +1,7 @@
 # PATTERNS
 
 ## Integrantes:
-* Jaime Estupiñan
+>* Jaime Estupiñan
 * Juan Betancourt
 * Tom Perez
 
