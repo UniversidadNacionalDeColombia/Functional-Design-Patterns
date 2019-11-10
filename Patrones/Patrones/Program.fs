@@ -5,21 +5,25 @@ open System
 let partialAplication() =
     let weights  = [40.0;50.0;70.0]
     
+    //Funcion encargada de convertir el peso de kilogramos a gramos
     let pounds x = x*2.205
 
+    //Strings que se van a imprimir
     let inKilograms = "En kilogramos:"
-    let inKilogramsUnits = printfn "    %.3f kg"
     let inPounds = "Al convertir a libras:"
-    let inPoundsUnits = printfn "   %.3f lb"
 
+    //Funciones encargadas de realizar diferentes tipos de impresiones
+    let inKilogramsUnits = printfn "    %.3f kg"
+    let inPoundsUnits = printfn "   %.3f lb"
     let prnt = printfn "%s"
 
     prnt inKilograms
+    //Se recorren cada uno de los pesos y se imprimen en kg
     weights
     |> List.iter inKilogramsUnits
 
     prnt inPounds
-
+    //Se recorren cada uno de los pesos y se imprimen en libras
     weights
     |> List.map pounds
     |> List.iter inPoundsUnits
@@ -28,6 +32,7 @@ let partialAplication() =
 
     let kilograms = float (Console.ReadLine())
     prnt inPounds
+    //Dado el peso ingresado en kilogramos se imprime el peso en libras
     inPoundsUnits (pounds kilograms)
     
 let hollywoodPrinciple() =
