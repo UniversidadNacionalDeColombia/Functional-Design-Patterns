@@ -82,9 +82,80 @@ let hollywoodPrinciple() =
     imcSpecialized height weight
     
 
+let bindtochainoptions() =
+    printfn "Ingresa tu promedio academico"
+    printfn "Para poder clasificarlo"
+    //Estas son las funciones que queremos encadenar por medio del bind.
+    let notvalid (x : float) = 
+        if (x <= 5.0 && x >= 0.0) 
+        then 
+           printfn("Tu Promedio ingresado es valido")
+           Some x
+        else 
+           printfn("El promedio debe ser un numero entre 0 y 5")
+           None
+    
+    let not45 (x : float) = 
+        if (x < 4.5) 
+        then 
+           printfn("Tu promedio es menor a 4.5")
+           Some x
+        else 
+           printfn("Felicidades Tienes un Promedio igual o por encima de 4.5")
+           None
+
+    let not40 (x : float) = 
+        if (x < 4.0) 
+        then 
+           printfn("Tu promedio es menor a 4")
+           Some x
+        else 
+           printfn("Pero tu promedio esta entre 4 y 4.4 lo cual es bastante bueno")
+           None
+
+    let not35 (x : float) = 
+        if (x < 3.5) 
+        then 
+           printfn("Tu promedio es menor a 3.5")
+           Some x
+        else
+           printfn("Tienes un promedio entre 3.5 y 3.9  no es muy alto pero es aceptable :)")
+           None
+
+    let not30 (x : float) = 
+           if (x < 3.0) 
+           then 
+              printfn("Tu promedio es menor a 3, por lo que no deberias seguir en la U :(")
+              Some x
+           else
+              printfn("Tienes un promedio entre 3 y 3.4 deberias comenzar a preocuparte")
+              None
+
+    
+    //Esta funcion es la que nos va a permitir ir encadenando todas las funciones, siempre y cuando estas retornen algo distinto a none (null)
+    let bind f x = 
+        match x with 
+        | Some i -> f i
+        | None -> None
+    
+    //Se recive el input del usuario
+    let peso = float(Console.ReadLine())
+    let pes = Some peso
+    pes
+    //Se llama el primer bind con el input del usuario y la primera funcion a evaluar, y se va a pasar el resultado de este bind, al  siguente bind, con otra funcion, 
+    //y se va a repetir lo anterior hasta que se acaben los bind.
+    |> bind notvalid
+    |> bind not45
+    |> bind not40
+    |> bind not35
+    |> bind not30
+    |> ignore
+
+    printfn("")
+
 [<EntryPoint>]
 let main argv =
-    let options = ["1. Partial aplicaction";"2. Hollywood principle";"3. Use bind to chain options";"4. Use bind to chain tasks"]
+    let options = ["1. Partial aplicaction";"2. Hollywood principle";"3. Use bind to chain options"]
     let prnt = printfn "%s"
     let mutable input = ""
     printfn "Ingrese la opcion que desea realizar:"
@@ -96,6 +167,7 @@ let main argv =
     match input with
     | "1" | "1." -> partialAplication()
     | "2" | "2." -> hollywoodPrinciple()
+    | "3" | "3." -> bindtochainoptions()
     | _ -> printfn "Opcion invalida"
 
     0
