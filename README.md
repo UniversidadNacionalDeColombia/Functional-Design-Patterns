@@ -1,9 +1,9 @@
 # PATTERNS
 
 ## Integrantes:
- -Jaime Estupiñan
- -Juan Betancourt
- -Tom Perez
+-Jaime EstupiÃ±an
+-Juan Betancourt
+-Tom Perez
 
 ## Installation
 
