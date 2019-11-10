@@ -96,7 +96,7 @@ let hollywoodPrinciple() =
 
 [<EntryPoint>]
 let main argv =
-    let options = ["1. Partial aplicaction";"2. Hollywood principle";"3. Use bind to chain options";"4. Use bind to chain tasks"]
+    let options = ["1. Partial aplicaction";"2. Hollywood principle"]
     let prnt = printfn "%s"
     let mutable input = ""
     printfn "Ingrese la opcion que desea realizar:"
