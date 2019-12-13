@@ -9,7 +9,7 @@ pipeline {
 
     stage('Sensors Test') {
       parallel {
-        stage('Sensors Test') {
+        stage('vibracion') {
           steps {
             echo 'Sensors Test'
           }
@@ -27,18 +27,12 @@ pipeline {
           }
         }
 
-        stage('vibracion') {
-          steps {
-            echo 'Vibracion'
-          }
-        }
-
       }
     }
 
     stage('Actuator test') {
       parallel {
-        stage('Actuator test') {
+        stage('motor electrico') {
           steps {
             echo 'Actuator test'
           }
@@ -47,12 +41,6 @@ pipeline {
         stage('valvulas') {
           steps {
             echo 'valvulas'
-          }
-        }
-
-        stage('motor electrico') {
-          steps {
-            echo 'Motor electrico'
           }
         }
 
@@ -73,7 +61,7 @@ pipeline {
 
     stage('Browser Test') {
       parallel {
-        stage('Browser Test') {
+        stage('edge') {
           steps {
             echo 'Deploy'
           }
@@ -88,12 +76,6 @@ pipeline {
         stage('firefox') {
           steps {
             echo 'firefox'
-          }
-        }
-
-        stage('edge') {
-          steps {
-            echo 'edge'
           }
         }
 
